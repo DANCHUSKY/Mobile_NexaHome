@@ -54,7 +54,7 @@ fun UserProperty(navController: NavHostController) {
     LaunchedEffect(token) {
         if (token != null) {
             try {
-                val url = "https://192.168.0.23:7770/property/myProperty"
+                val url = "https://192.168.184.116:7771/property/myProperty"
                 val response = withContext(Dispatchers.IO) {
                     val client = getUnsafeOkHttpClient()
                     val request = Request.Builder()
@@ -131,7 +131,7 @@ fun PropertyCard(property: Property, onClick: () -> Unit) {
         if (token != null) {
             try {
                 val client = getUnsafeOkHttpClient()
-                val url = "https://192.168.0.23:7770/property/iconImg?idProperty=${property.id}"
+                val url = "https://192.168.184.116:7771/property/iconImg?idProperty=${property.id}"
                 val request = Request.Builder()
                     .url(url)
                     .header("Authorization", token)

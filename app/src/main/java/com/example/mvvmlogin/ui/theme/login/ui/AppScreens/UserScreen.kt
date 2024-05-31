@@ -58,7 +58,7 @@ fun UserScreen(navController: NavHostController) {
     LaunchedEffect(token) {
         if (token != null) {
             try {
-                val url = "https://192.168.0.23:7770/myInfo"
+                val url = "https://192.168.184.116:7771/myInfo"
                 val response = withContext(Dispatchers.IO) {
                     val client = getUnsafeOkHttpClient()
                     val request = Request.Builder()

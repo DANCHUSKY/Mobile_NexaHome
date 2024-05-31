@@ -283,8 +283,8 @@ fun AddProperty(navController: NavHostController, token: String) {
                 }
                 AddPropertyButton(
                     onClick = {
-                        val propertyUrl = "https://192.168.0.23:7770/property"
-                        val imageUploadUrl = "https://192.168.0.23:7770/property/uploadimage/" // Agrega aquí el idProperty real
+                        val propertyUrl = "https://192.168.184.116:7771/property"
+                        val imageUploadUrl = "https://192.168.184.116:7771/property/uploadimage/" // Agrega aquí el idProperty real
 
                         try {
                             val client = getUnsafeOkHttpClient()
@@ -355,11 +355,17 @@ fun AddProperty(navController: NavHostController, token: String) {
                                                             navController.navigate("userproperty")
                                                         }
                                                     } else {
+                                                        MainScope().launch {
+                                                            navController.navigate("userproperty")
+                                                        }
                                                         println("La solicitud POST de imágenes seleccionadas falló: ${response.code}")
                                                     }
                                                 }
                                             })
                                         } else {
+                                            MainScope().launch {
+                                                navController.navigate("userproperty")
+                                            }
                                             println("No hay imágenes seleccionadas para cargar.")
                                         }
                                     } else {

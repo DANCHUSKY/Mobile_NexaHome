@@ -103,7 +103,7 @@ fun PasswordScreen(navController: NavHostController) {
 
 fun updatePassword(oldPassword: String, newPassword: String) {
     // URL del endpoint con parámetros de consulta
-    val url = "https://192.168.0.23:7770/user/changePass?oldPassword=${oldPassword}&newPassword=${newPassword}"
+    val url = "https://192.168.184.116:7771/user/changePass?oldPassword=${oldPassword}&newPassword=${newPassword}"
 
     // Construir la solicitud
     val request = Request.Builder()

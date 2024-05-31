@@ -59,7 +59,7 @@ import okhttp3.Request
 
 suspend fun fetchImage(propertyId: Int, token: String): Bitmap? {
     val client = getUnsafeOkHttpClient()
-    val url = "https://192.168.0.23:7770/property/iconImg?idProperty=$propertyId"
+    val url = "https://192.168.184.116:7771/property/iconImg?idProperty=$propertyId"
     val request = Request.Builder()
         .url(url)
         .header("Authorization", token)
@@ -122,6 +122,7 @@ fun PropertyCard(property: Property, token: String) {
                 color = Color.Black,
                 fontSize = 16.sp
             )
+
         }
     }
 }
@@ -164,11 +165,16 @@ fun SearchScreen(navController: NavHostController) {
                 }
             }
         }
+        BottomMenu(
+            selectedScreen = Screen.Busqueda,
+            onScreenSelected = { /* No hacer nada */ },
+            navController = navController
+        )
     }
 }
 
 fun fetchPropertyByCity(city: String, token: String, onPropertiesFetched: (List<Property>) -> Unit) {
-    val url = "https://192.168.0.23:7770/property/getByCity"
+    val url = "https://192.168.184.116:7771/property/getByCity"
 
     CoroutineScope(Dispatchers.IO).launch {
         try {

@@ -41,7 +41,7 @@ fun registerUser(name: String, email: String, passw: String, telefono: Int, call
     val body = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), json)
 
     val request = Request.Builder()
-        .url("https://192.168.0.23:7770/register")
+        .url("https://192.168.184.116:7771/register")
         .post(body)
         .build()
 

@@ -57,7 +57,7 @@ fun HomeScreen(navController: NavHostController) {
     LaunchedEffect(token) {
         if (token != null) {
             try {
-                val url = "https://192.168.0.23:7770/property/allProperty"
+                val url = "https://192.168.184.116:7771/property/allProperty"
                 val response = withContext(Dispatchers.IO) {
                     val client = getUnsafeOkHttpClient()
                     val request = Request.Builder()
@@ -299,7 +299,7 @@ suspend fun parseProperties(response: String, token: String): List<Property> {
 suspend fun loadImage(propertyId: Int, token: String): Bitmap? {
     return try {
         val client = getUnsafeOkHttpClient()
-        val url = "https://192.168.0.23:7770/property/iconImg?idProperty=$propertyId"
+        val url = "https://192.168.184.116:7771/property/iconImg?idProperty=$propertyId"
         val request = Request.Builder()
             .url(url)
             .header("Authorization", token)
